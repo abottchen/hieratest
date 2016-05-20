@@ -1,0 +1,19 @@
+puppet_enterprise::profile::master::code_manager_auto_configure: true
+puppet_enterprise::master::code_manager::git_settings:
+  private-key: '/etc/control-repo-id'
+  repositories:
+    - remote: "git@github.com:abottchen/control-repo.git"
+      private-key: "/etc/control-repo-id"
+    - remote: "git@github.com:abottchen/dev.git"
+      private-key: "/etc/control-repo-id"
+    - remote: "git@github.com:abottchen/hieratest.git"
+      private-key: "/etc/control-repo-id"
+puppet_enterprise::master::code_manager::sources:
+    main:
+      remote: "git@github.com:abottchen/control-repo.git"
+    hiera:
+      prefix: true
+      remote: "git@github.com:abottchen/dev.git"
+    hieratest:
+      prefix: true
+      remote: "git@github.com:abottchen/hieratest.git"
